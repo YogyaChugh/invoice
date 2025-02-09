@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <!-- Add Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <h2>Options</h2>
+            <ul>
+                <li><a href="#invoiceForm"><i class="fas fa-file-invoice"></i> Create Invoice</a></li>
+                <li><a href="#recentInvoices"><i class="fas fa-history"></i> Recent Invoices</a></li>
+                <li><a href="settings.html"><i class="fas fa-cogs"></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content Section -->
+        <div class="container">
+            <header>
+                <h1>Invoice Generator</h1>
+            </header>
+
+            <main>
+                <!-- Invoice Form Section -->
+                <section class="invoice-form" id="invoiceSection">
+                    <h2>Create New Invoice</h2>
+                    <p>Fill in the details below to generate a professional invoice.</p>
+                    <form id="invoiceForm">
+                        <div class="form-group">
+                            <label for="customerName">Customer Name</label>
+                            <input type="text" id="customerName" placeholder="Enter customer name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productCategory">Product Category</label>
+                            <select id="productCategory" required>
+                                <option value="">Select category</option>
+                                <!-- Categories will be loaded here dynamically -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="productName">Product Name</label>
+                            <input type="text" id="productName" placeholder="Enter product name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="number" id="price" placeholder="$ 0.00" required>
+                        </div>
+                        <div class="form-group buttons">
+                            <button type="submit"><i class="fas fa-file-invoice"></i> Generate Invoice</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Recent Invoices Section -->
+                <section class="recent-invoices" id="recentInvoices">
+                    <h2>Recent Invoices</h2>
+                    <ul id="invoiceList"></ul>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Add jsPDF Script for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Script to load categories dynamically -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const categorySelect = document.getElementById('productCategory');
+            const categories = JSON.parse(localStorage.getItem('categories')) || [];
+            
+            // Populate categories dropdown
+            categories.forEach((category) => {
+                const option = document.createElement("option");
+                option.value = category.name;
+                option.textContent = `${category.name} - GST: ${category.gstRate}%`;
+                categorySelect.appendChild(option);
+            });
+        });
+    </script>
+</body>
+</html>

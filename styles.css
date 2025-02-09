@@ -1,0 +1,262 @@
+/* Global Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    overflow-y: auto;
+    color: #333;
+}
+
+/* Main Wrapper */
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 220px;
+    background-color: #2d3436;
+    color: white;
+    padding: 20px;
+    border-radius: 15px 0 0 15px;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
+}
+
+.sidebar li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar li a:hover {
+    background-color: #34495e;
+    border-radius: 5px;
+}
+
+.sidebar i {
+    margin-right: 10px;
+}
+
+/* Main Content */
+.container {
+    width: 80%;
+    margin-left: 20px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #2d3436;
+    color: white;
+    border-radius: 15px 15px 0 0;
+}
+
+header h1 {
+    font-size: 28px;
+}
+
+/* Invoice Form Section */
+.invoice-form {
+    padding: 20px;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    background-color: #fafafa;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #6c757d;
+    outline: none;
+    background-color: #fff;
+}
+
+/* Buttons */
+button {
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+button i {
+    margin-right: 8px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.action-buttons button {
+    background-color: #2d3436;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48%;
+}
+
+.action-buttons button:hover {
+    background-color: #555;
+}
+
+.action-buttons i {
+    margin-right: 8px;
+}
+
+/* Recent Invoices Section */
+.recent-invoices {
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.recent-invoices h2 {
+    font-size: 18px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.recent-invoices ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.recent-invoices li {
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Settings Section */
+.settings-section {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.settings-section h2 {
+    font-size: 18px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.settings-section form input {
+    margin-top: 15px;
+}
+
+.settings-section button {
+    width: auto;
+    background-color: #27ae60;
+    margin-top: 10px;
+}
+
+.settings-section .form-group {
+    margin-bottom: 15px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .container {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .action-buttons button {
+        width: 100%; /* Full-width buttons on mobile */
+        margin-bottom: 10px;
+    }
+}
