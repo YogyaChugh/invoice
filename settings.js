@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const categoryName = document.getElementById("categoryName").value.trim();
         const gstRate = parseFloat(document.getElementById("gstRate").value);
-        console.log(document.getElementById("gstRate").value))
 
         // Validate input
         if (!categoryName || isNaN(gstRate)) {
